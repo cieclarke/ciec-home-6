@@ -4,8 +4,7 @@ import webpack, { DefinePlugin } from 'webpack';
 import webpackDevServer from 'webpack-dev-server';
 
 interface Environment {
-  FlickrUserId: string;
-  FlickrAPIKey: string;
+  apiBaseURL: string;
 }
 
 const devServer: webpackDevServer.Configuration = {
@@ -56,8 +55,7 @@ export function config(env: Environment) {
         template: 'src/templates/index.html'
       }),
       new DefinePlugin({
-        __FLICKR_USER_ID__: JSON.stringify(env.FlickrUserId),
-        __FLICKR_API_KEY__: JSON.stringify(env.FlickrAPIKey)
+        __API_BASE_URL__: JSON.stringify(env.apiBaseURL)
       })
     ],
     resolve: {

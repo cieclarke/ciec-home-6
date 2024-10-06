@@ -1,11 +1,9 @@
-const BASE_URL = 'http://localhost:8080';
-
 export interface Photo {
   id: string;
   url: string;
 }
 
 export async function getPhotos(): Promise<Photo[]> {
-  const x = await fetch(`${BASE_URL}/photos`);
-  return await x.json();
+  const x = await fetch(`${__API_BASE_URL__}/photos`);
+  return x.json();
 }
