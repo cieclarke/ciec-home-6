@@ -5,26 +5,31 @@ import webpackDevServer from 'webpack-dev-server';
 
 interface Environment {
   apiBaseURL: string;
+  port: number;
 }
 
-const devServer: webpackDevServer.Configuration = {
-  static: {
-    directory: path.join(__dirname, 'dist')
-  },
-  compress: true,
-  port: 9000,
-  historyApiFallback: true,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-    'Access-Control-Allow-Headers':
-      'X-Requested-With, content-type, Authorization'
-  }
+const devServer: (port: number) => webpackDevServer.Configuration = (
+  port: number
+) => {
+  return {
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
+    compress: true,
+    port,
+    historyApiFallback: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers':
+        'X-Requested-With, content-type, Authorization'
+    }
+  };
 };
 
 export function config(env: Environment) {
   const config: webpack.Configuration = {
-    devServer,
+    devServer: devServer(env.port || 9000),
     devtool: 'inline-source-map',
     output: {
       filename: 'bundle.js',
