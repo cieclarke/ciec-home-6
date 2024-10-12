@@ -81,8 +81,14 @@ p > a {
 
 #content {
   @apply absolute;
-  @apply top-0;
-  @apply right-0;
+  @apply top-3;
+  @apply border-red-500;
+  @apply border-solid;
+  @apply border;
+  max-height: 52rem;
+  overflow: hidden;
+  scroll-behavior: auto;
+  width: 100%;
 }
 
 #banner {

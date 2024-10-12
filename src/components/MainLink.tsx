@@ -6,12 +6,10 @@ export interface MainLinkProps {
   href: string;
 }
 
-export default class MainLink extends Component<MainLinkProps> {
-  render() {
-    return (
-      <Link className='menu-link' to={this.props.href ?? '/'}>
-        {this.props.text}
-      </Link>
-    );
-  }
+export default function MainLink(props: MainLinkProps) {
+  return (
+    <Link className='menu-link' to={props.href ?? '/'}>
+      {props.text}
+    </Link>
+  );
 }

@@ -7,9 +7,11 @@
     "postinstall": "cd ../api.cieclarke.com && npm ci && npm run build",
     "test": "jest --coverage",
     "build:dev": "webpack --env apiBaseURL=http://api.local:8080",
+    "build:stage": "webpack --env apiBaseURL=http://api.cieclarke.com",
     "build:prod": "webpack --env apiBaseURL=http://api.cieclarke.com",
     "dev": "webpack --watch",
     "serve": "webpack serve --env apiBaseURL=http://api.local:8080",
+    "serve:stage": "webpack serve --env apiBaseURL=http://api.cieclarke.com",
     "debug-build": "tsc"
   },
   "author": "",

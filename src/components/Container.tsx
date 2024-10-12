@@ -17,6 +17,9 @@ export default function Container(): React.JSX.Element {
             <div className='flex-1 text-center'>
               <MainLink href='/photos' text='Photos' />
             </div>
+            <div className='flex-1 text-center'>
+              <MainLink href='/links' text='Links' />
+            </div>
           </div>
         </nav>
       </div>
